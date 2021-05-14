@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/background.png" type="Texture" id=1]
+[ext_resource path="res://src/UI/Title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/ButQuit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/ButChangeScene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=5]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 512.0 ]
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 898.0
+margin_bottom = 482.0
+rect_scale = Vector2( 0.532795, 0.554335 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LblTitle" parent="." instance=ExtResource( 2 )]
+text = "Godot2D"
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.320313
+anchor_top = 0.426667
+anchor_right = 0.679688
+anchor_bottom = 0.693333
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ButPlay" parent="Menu" instance=ExtResource( 4 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_right = 367.0
+margin_bottom = 77.0
+next_scene = "res://src/Levels/Level01.tscn"
+
+[node name="ButQuit" parent="Menu" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_top = 81.0
+margin_right = 367.0
+margin_bottom = 159.0

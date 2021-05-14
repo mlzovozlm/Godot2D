@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/UI/ButChangeScene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/ButQuit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/Title.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UI/ButRetry.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UI/UI.gd" type="Script" id=6]
+
+[node name="UI" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 511.0 ]
+}
+
+[node name="LblScore" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -269.0
+margin_top = 28.0
+margin_right = -25.0
+margin_bottom = 97.0
+text = "Score: %s"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.156863 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LblTitle" parent="PauseOverlay" instance=ExtResource( 4 )]
+margin_top = 104.0
+margin_bottom = 232.0
+text = "Paused"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -176.0
+margin_top = -28.0
+margin_right = 176.0
+margin_bottom = 116.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButRetry" parent="PauseOverlay/VBoxContainer" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_right = 352.0
+margin_bottom = 45.0
+
+[node name="ButChangeScene" parent="PauseOverlay/VBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_top = 49.0
+margin_right = 352.0
+margin_bottom = 94.0
+text = "Main Screen"
+next_scene = "res://src/Screens/MainScreen.tscn"
+
+[node name="ButQuit" parent="PauseOverlay/VBoxContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_top = 98.0
+margin_right = 352.0
+margin_bottom = 144.0
